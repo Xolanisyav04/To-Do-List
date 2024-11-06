@@ -1,0 +1,22 @@
+# To-Do List Application
+
+A simple yet powerful to-do list application built with **Node.js**, **Advanced JavaScript (ES6+ features)**, **HTML**, and **CSS**. This app allows users to create, update, and delete tasks, making it easy to keep track of daily activities.
+
+## Features
+- **Add, Edit, and Delete Tasks**: Users can create new tasks, edit existing tasks, or delete tasks they no longer need.
+- **Mark as Complete**: Tasks can be marked as completed and visually separated from pending tasks.
+- **Persistent Storage**: Tasks are saved to a database, allowing users to retrieve their tasks even after closing the app.
+- **Responsive Design**: Built to work seamlessly on various devices, from mobile to desktop.
+
+## Getting Started
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [NPM](https://www.npmjs.com/) (comes with Node.js)
+  
+### Installation
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/todo-list-app.git
+   cd todo-list-app
