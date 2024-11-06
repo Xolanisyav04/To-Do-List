@@ -13,10 +13,9 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v14 or higher)
-- [NPM](https://www.npmjs.com/) (comes with Node.js)
   
 ### Installation
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/todo-list-app.git
-   cd todo-list-app
+   git clone https://github.com/xolanisyav04/todo-list.git
+   cd todo-list
