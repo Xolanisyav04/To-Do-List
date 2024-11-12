@@ -1,21 +1,36 @@
-# To-Do List Application
+# Todo List Application
 
-A simple yet powerful to-do list application built with **Node.js**, **Advanced JavaScript (ES6+ features)**, **HTML**, and **CSS**. This app allows users to create, update, and delete tasks, making it easy to keep track of daily activities.
+This is a **Todo List Web Application** built with **Node.js**, **Express**, and **EJS** templating. It allows users to create, complete, and delete tasks, with data persistence provided using `node-localstorage`.
+
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [How to Run](#how-to-run)
+- [Author](#author)
 
 ## Features
-- **Add, Edit, and Delete Tasks**: Users can create new tasks, edit existing tasks, or delete tasks they no longer need.
-- **Mark as Complete**: Tasks can be marked as completed and visually separated from pending tasks.
-- **Persistent Storage**: Tasks are saved to a database, allowing users to retrieve their tasks even after closing the app.
-- **Responsive Design**: Built to work seamlessly on various devices, from mobile to desktop.
+- Add tasks with a name and description.
+- Mark tasks as complete.
+- Delete tasks from the list.
+- Data persistence using `node-localstorage` to save todos.
 
-## Getting Started
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
+## Prerequisites
+Before you begin, make sure you have the following installed on your system:
+- **Node.js** (version 14.x or higher)
+- **npm** (Node Package Manager)
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v14 or higher)
-  
-### Installation
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/xolanisyav04/todo-list.git
-   cd todo-list
+## Installation
+
+### Step 1: Clone the Repository
+-To get a copy of this project on your local machine, clone the repository or download as zip file
+### Step 2: Install packages
+-install packages using "npm install" command, it will install all the packages specified in the package.json file
+
+## How to Run
+-you can run the application using the command "nodemon app" or "node app"
+-when the server is running you can type the url: http://localhost:3000 in your browser to run the app
+
+## Author
+Xolani Vilakazi
+xolanisyav04@gmail.com
