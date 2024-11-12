@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.todo-container {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todo-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#addTodo {
+    background-color: #f9a825;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#addTodo:hover {
+    background-color: #ff9800;
+}
+
+.todo-list {
+    margin-top: 20px;
+}
+
+.todo-item {
+    background-color: #555;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.todo-item.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.todo-item h3 {
+    font-size: 1.5rem;
+    color: #ffb300;
+}
+
+.todo-item p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.complete, .delete {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.complete {
+    background-color: white ;
+    color:#4caf50 ;
+}
+
+.complete:hover {
+    background-color: #388e3c;
+}
+
+.delete {
+    background-color:white;
+    color: #f44336;
+}
+
+.delete:hover {
+    background-color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    .todo-form {
+        flex-direction: column;
+    }
+
+    .todo-form input {
+        margin-bottom: 10px;
+    }
+}
