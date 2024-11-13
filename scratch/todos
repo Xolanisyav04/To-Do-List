@@ -1,1 +1,1 @@
-[{"name":"task2","description":"my task3","completed":false},{"name":"visit ayanda","description":"pta","completed":false},{"name":"Soccer","description":"play 1-2","completed":false}]
+[{"name":"Task1","description":"laundry","dueDate":"2024-12-07","completed":true,"notified":false},{"name":"task2","description":"my task3","dueDate":"2024-11-13","completed":false},{"name":"task2","description":"my task3","dueDate":"2024-11-04","completed":false}]

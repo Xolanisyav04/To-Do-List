@@ -8,9 +8,9 @@ const app = express();
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// Middleware to serve static files (if you have any)
+// Middleware to serve static files
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true })); // For form handling
+app.use(express.urlencoded({ extended: true }));
 
 // Helper function to load todos from local storage
 function loadTodos() {
@@ -25,18 +25,23 @@ function saveTodos(todos) {
 
 // Home route to display the todos
 app.get('/', (req, res) => {
-    const todos = loadTodos(); // Load todos from local storage
+    const todos = loadTodos();
     res.render('index', { todos });
 });
 
 // Route to add a new todo
 app.post('/add', (req, res) => {
-    const { taskName, taskDescription } = req.body;
+    const { taskName, taskDescription, dueDate } = req.body;
     const todos = loadTodos();
 
-    if (taskName && taskDescription) {
-        todos.push({ name: taskName, description: taskDescription, completed: false });
-        saveTodos(todos); // Save updated todos to local storage
+    if (taskName && taskDescription && dueDate) {
+        todos.push({
+            name: taskName,
+            description: taskDescription,
+            dueDate,
+            completed: false
+        });
+        saveTodos(todos);
     }
     res.redirect('/');
 });
@@ -48,7 +53,7 @@ app.post('/complete/:index', (req, res) => {
 
     if (todos[index]) {
         todos[index].completed = true;
-        saveTodos(todos); // Save updated todos to local storage
+        saveTodos(todos);
     }
     res.redirect('/');
 });
@@ -60,7 +65,7 @@ app.post('/delete/:index', (req, res) => {
 
     if (todos[index]) {
         todos.splice(index, 1);
-        saveTodos(todos); // Save updated todos to local storage
+        saveTodos(todos);
     }
     res.redirect('/');
 });

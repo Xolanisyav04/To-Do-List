@@ -14,6 +14,7 @@
         <form class="todo-form" action="/add" method="POST">
             <input type="text" name="taskName" placeholder="Name" required>
             <input type="text" name="taskDescription" placeholder="Description" required>
+            <input type="date" name="dueDate" required>
             <button id="addTodo" type="submit">Add Todo</button>
         </form>
 
@@ -24,12 +25,13 @@
                     <div>
                         <h3><%= todo.name %></h3>
                         <p><%= todo.description %></p>
+                        <p style="color: red;">Due Date: <%= todo.dueDate %></p>
                     </div>
                     
                     <div class="buttons">
                         <% if (!todo.completed) { %>
-                            <form action="/complete/<%= index %>"method="POST">
-                                <button  class="complete" type="submit">Complete</button>
+                            <form action="/complete/<%= index %>" method="POST">
+                                <button class="complete" type="submit">Complete</button>
                             </form>
                         <% } %>
                         <form action="/delete/<%= index %>" method="POST">
@@ -37,6 +39,7 @@
                         </form>
                     </div>
                 </div>
+
             <% }); %>
         </div>
     </div>
