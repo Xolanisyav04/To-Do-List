@@ -5,43 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Todos</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="todo-container">
-        <h1>My Todos</h1>
-
-        <!-- Form to add a new todo -->
-        <form class="todo-form" action="/add" method="POST">
-            <input type="text" name="taskName" placeholder="Name" required>
-            <input type="text" name="taskDescription" placeholder="Description" required>
-            <input type="date" name="dueDate" required>
-            <button id="addTodo" type="submit">Add Todo</button>
-        </form>
-
-        <!-- Display the list of todos -->
-        <div class="todo-list">
-            <% todos.forEach((todo, index) => { %>
-                <div class="todo-item <%= todo.completed ? 'completed' : '' %>">
-                    <div>
-                        <h3><%= todo.name %></h3>
-                        <p><%= todo.description %></p>
-                        <p style="color: red;">Due Date: <%= todo.dueDate %></p>
-                    </div>
-                    
-                    <div class="buttons">
-                        <% if (!todo.completed) { %>
-                            <form action="/complete/<%= index %>" method="POST">
-                                <button class="complete" type="submit">Complete</button>
-                            </form>
-                        <% } %>
-                        <form action="/delete/<%= index %>" method="POST">
-                            <button class="delete" type="submit">Delete</button>
-                        </form>
-                    </div>
-                </div>
-
-            <% }); %>
+    <div class="container">
+        <!-- Notifications Tab -->
+        <div class="notification-container">
+            <!-- Chart Section -->
+         <!-- <div class="chart-container">
+            <h2>Task Overview</h2>
+            <canvas id="taskChart"></canvas>
+        </div> -->
+        
+            <h2>Notifications</h2>
+            <ul id="notifications">
+                <% overdueTasks.forEach(task => { %>
+                    <li>Overdue Task: <%= task.name %> - Due: <%= task.dueDate %></li>
+                <% }); %>
+                <% upcomingTasks.forEach(task => { %>
+                    <% if (task.dueDate === new Date().toISOString().split('T')[0]) { %>
+                        <li>Due Today: <%= task.name %> - Due: <%= task.dueDate %></li>
+                    <% } %>
+                <% }); %>
+            </ul>
         </div>
+        <div class="todo-container">
+            <h1>My Todos</h1>
+    
+            <!-- Form to add a new todo -->
+            <form class="todo-form" action="/add" method="POST">
+                <input type="text" name="taskName" placeholder="Name" required>
+                <input type="text" name="taskDescription" placeholder="Description" required>
+                <input type="date" name="dueDate" required>
+                <button id="addTodo" type="submit">Add Todo</button>
+            </form>
+    
+            <!-- Display the list of todos -->
+            <div class="todo-list">
+                <% todos.forEach((todo, index) => { %>
+                    <div class="todo-item <%= todo.completed ? 'completed' : '' %>">
+                        <div>
+                            <h3><%= todo.name %></h3>
+                            <p><%= todo.description %></p>
+                            <p style="color: red;">Due Date: <%= todo.dueDate %></p>
+                        </div>
+                        <div class="buttons">
+                            <% if (!todo.completed) { %>
+                                <form action="/complete/<%= index %>" method="POST">
+                                    <button class="complete" type="submit">Complete</button>
+                                </form>
+                            <% } %>
+                            <form action="/delete/<%= index %>" method="POST">
+                                <button class="delete" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        
     </div>
+    
+    <script>
+        // Fetch chart data and render chart
+        fetch('/chart-data')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('taskChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Completed', 'Overdue', 'Upcoming'],
+                        datasets: [{
+                            data: [data.completed, data.overdue, data.upcoming],
+                            backgroundColor: ['#4caf50', '#f44336', '#ff9800'],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
 </body>
 </html>

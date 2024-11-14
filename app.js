@@ -24,10 +24,41 @@ function saveTodos(todos) {
 }
 
 // Home route to display the todos
+// app.get('/', (req, res) => {
+//     const todos = loadTodos();
+//     res.render('index', { todos });
+// });
+
+// Route to load todos and categorize them
 app.get('/', (req, res) => {
     const todos = loadTodos();
-    res.render('index', { todos });
+    const today = new Date().toISOString().split('T')[0];
+
+    const completedTasks = todos.filter(todo => todo.completed);
+    const overdueTasks = todos.filter(todo => !todo.completed && todo.dueDate < today);
+    const upcomingTasks = todos.filter(todo => !todo.completed && todo.dueDate >= today);
+    
+    res.render('index', {
+        todos,
+        completedTasks,
+        overdueTasks,
+        upcomingTasks,
+    });
 });
+
+// Fetch data for charts
+app.get('/chart-data', (req, res) => {
+    const todos = loadTodos();
+    const today = new Date().toISOString().split('T')[0];
+
+    const data = {
+        completed: todos.filter(todo => todo.completed).length,
+        overdue: todos.filter(todo => !todo.completed && todo.dueDate < today).length,
+        upcoming: todos.filter(todo => !todo.completed && todo.dueDate >= today).length,
+    };
+    res.json(data);
+});
+
 
 // Route to add a new todo
 app.post('/add', (req, res) => {
