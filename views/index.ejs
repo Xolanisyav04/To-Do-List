@@ -33,12 +33,19 @@
             <h1>My Todos</h1>
     
             <!-- Form to add a new todo -->
-            <form class="todo-form" action="/add" method="POST">
+            <form class="todo-form" action="/add" method="POST" onsubmit="return validateForm()">
+                <input type="text" name="taskName" placeholder="Name" pattern=".*\S.*" title="No spaces allowed" required>
+                <input type="text" name="taskDescription" placeholder="Description" pattern=".*\S.*" title="No spaces allowed" required>
+                <input type="date" name="dueDate" required>
+                <button id="addTodo" type="submit">Add Todo</button>
+            </form>
+            
+            <!-- <form class="todo-form" action="/add" method="POST">
                 <input type="text" name="taskName" placeholder="Name" required>
                 <input type="text" name="taskDescription" placeholder="Description" required>
                 <input type="date" name="dueDate" required>
                 <button id="addTodo" type="submit">Add Todo</button>
-            </form>
+            </form> -->
     
             <!-- Display the list of todos -->
             <div class="todo-list">
