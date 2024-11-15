@@ -29,7 +29,6 @@ body {
     overflow-y: auto; /* Enable vertical scrolling */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     color: #fff;
-    scrollbar-width: none; /* For Firefox */
 }
 
 /* For Chrome, Edge, and Safari */
@@ -138,7 +137,13 @@ h1 {
     background-color: #333;
     border-radius: 8px;
     padding: 15px;
+    max-height: 100vh; /* Set the maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
     /* margin-bottom: 20px; */
+}
+/* For Chrome, Edge, and Safari */
+.notification-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar */
 }
 
 .notification-container h2 {
@@ -164,7 +169,7 @@ h1 {
     background-color: #444;
     padding: 20px;
     border-radius: 8px;
-    height:50vh;
+    height:55vh;
 }
 
 .chart-container h2 {
@@ -174,8 +179,8 @@ h1 {
 }
 
 canvas {
-    max-width: fit-content;
-    max-height: fit-content;
+    max-width:100%;
+    max-height: 100%;
 }
 
 
