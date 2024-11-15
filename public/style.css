@@ -168,8 +168,12 @@ h1 {
     background-color: #444;
     padding: 20px;
     border-radius: 8px;
+<<<<<<< HEAD
     height:55vh;
     margin-top: 10px;
+=======
+    height:60vh;
+>>>>>>> 1c66b52f298b17996474f8f4febe5ee27bfaff97
 }
 
 .chart-container h2 {
