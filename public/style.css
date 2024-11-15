@@ -170,6 +170,7 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     height:55vh;
+    display:flex;
 }
 
 .chart-container h2 {
