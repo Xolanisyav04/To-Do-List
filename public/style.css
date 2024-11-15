@@ -165,6 +165,7 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     height:50vh;
+    position: relative;
 }
 
 .chart-container h2 {
@@ -175,6 +176,7 @@ h1 {
 
 canvas {
     max-width: 100%;
+    max-height:100%;
 }
 
 
