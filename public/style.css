@@ -165,11 +165,11 @@ h1 {
 }
 
 .chart-container {
-    /* margin-top: 30px; */
     background-color: #444;
     padding: 20px;
     border-radius: 8px;
     height:55vh;
+    margin-top: 10px;
 }
 
 .chart-container h2 {
