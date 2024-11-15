@@ -174,8 +174,7 @@ h1 {
 }
 
 canvas {
-    max-width: fit-content;
-    max-height: fit-content;
+    max-width: 100%;
 }
 
 
