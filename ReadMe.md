@@ -28,6 +28,10 @@ Before you begin, make sure you have the following installed on your system:
 -install packages using "npm install" command, it will install all the packages specified in the package.json file
 
 ## How to Run
+### 1. Use this live link:
+https://to-do-list-1-7kxn.onrender.com
+
+### 2. follow these steps
 -you can run the application using the command "nodemon app" or "node app"
 -when the server is running you can type the url: http://localhost:3000 in your browser to run the app
 
